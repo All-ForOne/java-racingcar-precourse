@@ -14,4 +14,14 @@ public class CarTest {
                 .withMessageContaining("[ERROR]");
     }
 
+    @Test
+    void 자동차_전진() {
+        Car carOne = new Car("one");
+        carOne.goOrStop(4);
+        Car carTwo = new Car("two");
+        carTwo.goOrStop(3);
+        assertThat(carOne.getCount()).isEqualTo(1);
+        assertThat(carTwo.getCount()).isEqualTo(0);
+    }
+
 }
