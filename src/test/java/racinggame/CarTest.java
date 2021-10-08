@@ -20,8 +20,8 @@ public class CarTest {
         carOne.goOrStop(4);
         Car carTwo = new Car("two");
         carTwo.goOrStop(3);
-        assertThat(carOne.getCount()).isEqualTo(1);
-        assertThat(carTwo.getCount()).isEqualTo(0);
+        assertThat(carOne.getStep().getCount()).isEqualTo(1);
+        assertThat(carTwo.getStep().getCount()).isEqualTo(0);
     }
 
 }

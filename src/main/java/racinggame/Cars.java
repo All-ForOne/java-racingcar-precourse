@@ -26,40 +26,39 @@ public class Cars {
         System.out.println("\n실행 결과");
         for(int i = 0; i < totalRound; i++){
             playRound();
-            OutputView.printResult(cars);
         }
+        OutputView.printRacingResult(getWinner());
     }
 
     private void playRound(){
         for(Car car : cars){
             car.goOrStop(createRandomNumber());
         }
+        OutputView.printRoundResult(cars);
     }
 
     private int createRandomNumber(){
         return Randoms.pickNumberInRange(START_INCLUSIVE, END_INCLUSIVE);
     }
 
-    /*
-    public String getWinner() {
-        List<Car> winner = new ArrayList<Car>();
+    public List<Car> getWinner() {
+        List<Car> winner = new ArrayList<>();
         int maxCount = getMaxCount();
-        for(int i = 0; i < cars.size(); i++){
-            winner = cars.get(i).getCount() == maxCount ? cars.get(i) : null;
+        for(Car car : cars) {
+            if(car.getStep().getCount() == maxCount){
+                winner.add(car);
+            }
         }
-
         return winner;
     }
 
-    private int getMaxCount(){
+    private int getMaxCount() {
         int maxCount = 0;
 
-        for(int i = 0; i < cars.size(); i++){
-            maxCount = cars.get(i).getCount() > maxCount ? cars.get(i).getCount() : maxCount;
+        for(Car car : cars){
+            maxCount = Math.max(maxCount, car.getStep().getCount());
         }
         return maxCount;
     }
-
-     */
 
 }
