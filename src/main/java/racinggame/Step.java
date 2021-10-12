@@ -1,6 +1,7 @@
 package racinggame;
 
 public class Step {
+    public static final String STRING_HYPHEN = "-";
     private int count;
 
     public Step(int step) {
@@ -18,7 +19,7 @@ public class Step {
     public String printStep(){
         String strStep = "";
         for(int i = 0; i < this.count; i++){
-            strStep += "-";
+            strStep += STRING_HYPHEN;
         }
         return strStep;
     }

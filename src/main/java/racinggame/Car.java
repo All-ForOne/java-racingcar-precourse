@@ -2,12 +2,13 @@ package racinggame;
 
 public class Car {
     public static final int STANDARD_NUMBER = 4;
-    private CarName name;
-    private Step step;
+    public static final int INITIAL_STEP_NUMBER = 0;
+    private final CarName name;
+    private final Step step;
 
     public Car(String name) {
         this.name = new CarName(name);
-        this.step = new Step(0);
+        this.step = new Step(INITIAL_STEP_NUMBER);
     }
 
     public String getName(){
@@ -23,8 +24,7 @@ public class Car {
     }
 
     private boolean isOverStandard(int number){
-        if(number >= STANDARD_NUMBER) return true;
-        return false;
+        return (number >= STANDARD_NUMBER) ;
     }
 
 }
